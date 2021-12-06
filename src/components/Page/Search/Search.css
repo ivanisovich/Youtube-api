@@ -1,0 +1,17 @@
+.search {
+  width: 100%;
+}
+
+.search_title {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.search_inner-suffix {
+  cursor: pointer;
+}
+
+.preloader {
+  display: flex;
+  justify-content: center;
+}

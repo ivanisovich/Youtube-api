@@ -1,0 +1,31 @@
+header {
+  background: white !important;
+}
+
+.logout-button {
+  text-align: right;
+}
+
+.ant-menu {
+  display: flex;
+}
+
+.ant-row {
+  justify-content: center;
+}
+
+.ant-layout-content {
+  background-color: #fafafa !important;
+}
+
+.logo img {
+  max-width: 48px;
+  max-height: 48px;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 6vw;
+}

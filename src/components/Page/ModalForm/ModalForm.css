@@ -1,0 +1,9 @@
+.request_buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.request_button {
+  margin-left: 20px;
+}
