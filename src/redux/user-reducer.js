@@ -9,17 +9,25 @@ const SEARCH_VIDEO = "SEARCH_VIDEO",
 
 const login = localStorage.getItem("user-name");
 
+let favouritesRequest = JSON.parse(localStorage.getItem(login));
+
+if (favouritesRequest == null) {
+  favouritesRequest = [];
+}
+
 const saveChangeInLocalStorage = (getState) => {
   let state = getState();
   let name = getUserName(state);
   let favouritesRequest = getFavouritesRequest(state);
 
-  localStorage.setItem(`${name}`, JSON.stringify(favouritesRequest));
+  if (favouritesRequest !== null) {
+    localStorage.setItem(`${name}`, JSON.stringify(favouritesRequest));
+  }
 };
 
 const initialState = {
   userName: login,
-  favouritesRequest: [],
+  favouritesRequest: favouritesRequest,
   resultRequest: [],
   request: null,
   count: null,
@@ -27,6 +35,7 @@ const initialState = {
 };
 
 const userReducer = (state = initialState, action) => {
+  console.log(state.getFavouritesRequest);
   switch (action.type) {
     case SEARCH_VIDEO: {
       return {
@@ -56,7 +65,7 @@ const userReducer = (state = initialState, action) => {
           {
             id: state.favouritesRequest.length + 1,
             request: action.newRequest.request,
-            nameRequest: action.newRequest.nameRequest,
+            requestName: action.newRequest.requestName,
             sort: action.newRequest.sort,
             max_result: action.newRequest.max_result,
           },
@@ -89,22 +98,25 @@ export const setResultSearch = (result, request, totalCount) => ({
   request,
   totalCount,
 });
+
 export const setUserName = (userName) => ({ type: LOGIN_NAME, userName });
+
 export const toggleIsFetching = (isFetching) => ({
   type: TOGGLE_IS_FETCHING,
   isFetching,
 });
+
 export const setFavouriteRequest = (newRequest) => ({
   type: SAVE_REQUEST,
   newRequest,
 });
+
 export const setchangedRequest = (requestId, changedRequest) => ({
   type: CHANGE_REQUEST,
   requestId,
   changedRequest,
 });
 
-/* Thunk */
 export const getSearchVideo =
   (textRequest, maxResults = 12, order = "viewCount") =>
   async (dispatch) => {

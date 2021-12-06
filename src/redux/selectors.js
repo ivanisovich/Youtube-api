@@ -17,6 +17,7 @@ export const getUserName = (state) => {
 export const getIsFetching = (state) => {
   return state.user.isFetching;
 };
+
 export const getFavouritesRequest = (state) => {
   return state.user.favouritesRequest;
 };

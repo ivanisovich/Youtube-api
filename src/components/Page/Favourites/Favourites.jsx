@@ -1,5 +1,5 @@
 import { Button, List } from "antd";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import ModalForm from "../ModalForm/ModalForm";
 import "./Favourites.css";
@@ -7,11 +7,20 @@ import "./Favourites.css";
 const Favourites = (props) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [requestValue, setRequestValue] = useState({});
+  const [request, setRequest] = useState({});
 
   const onSubmit = (request) => {
+    setRequest(request);
+    console.log(request);
     props.changeRequest(requestValue.id, request);
     setIsModalVisible(false);
   };
+
+  useEffect(() => {
+    if (request.requestName) {
+      props.changeRequest(requestValue.id, request);
+    }
+  }, [request, requestValue]);
 
   return (
     <div className={"favourites"}>
@@ -45,7 +54,7 @@ const Favourites = (props) => {
               </Button>,
             ]}
           >
-            {item.nameRequest}
+            {item.requestName}
           </List.Item>
         )}
       />

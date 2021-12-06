@@ -1,8 +1,8 @@
 import React from "react";
 import { Button, Col, Layout, Menu, Row } from "antd";
 import { NavLink, Redirect, Route, Switch } from "react-router-dom";
-import FavouritesConteiner from "./Favourites/FavouritesContainer";
-import SearchConteiner from "./Search/SearchConteiner";
+import FavouritesContainer from "./Favourites/FavouritesContainer";
+import SearchContainer from "./Search/SearchContainer";
 import logo from "../../assets/img/sibdev-logo.png";
 import "./Page.css";
 
@@ -43,10 +43,10 @@ const Page = (props) => {
               path="/page"
               render={() => <Redirect to={"/page/search"} />}
             />
-            <Route path="/page/search" render={() => <SearchConteiner />} />
+            <Route path="/page/search" render={() => <SearchContainer />} />
             <Route
               path="/page/favourites"
-              render={() => <FavouritesConteiner />}
+              render={() => <FavouritesContainer />}
             />
           </Switch>
         </div>

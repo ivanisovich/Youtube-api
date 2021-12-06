@@ -9,7 +9,7 @@ const tokenGenerator = () => {
   );
 };
 
-const isAuth = localStorage.getItem("user") !== null;
+const isAuth = localStorage.getItem("token") !== null;
 const initialState = {
   isAuth: isAuth,
 };

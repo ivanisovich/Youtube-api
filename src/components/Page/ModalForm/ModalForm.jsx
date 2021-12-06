@@ -25,8 +25,8 @@ const RequestForm = (props) => {
         {props.isDisabled ? <Input disabled /> : <Input />}
       </Form.Item>
       <Form.Item
-        name="nameRequest"
-        initialValue={props.initialValue.nameRequest || ""}
+        name="requestName"
+        initialValue={props.initialValue.requestName || ""}
         label="Название"
         rules={[
           {

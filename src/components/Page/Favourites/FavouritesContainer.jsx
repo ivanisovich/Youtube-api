@@ -33,6 +33,7 @@ const mapStateToProps = (state) => {
     userName: getUserName(state),
   };
 };
+
 const mapDispatchToProps = {
   getSearchVideo,
   changeFavouriteRequest,
