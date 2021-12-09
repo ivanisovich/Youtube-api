@@ -30,10 +30,10 @@ const authReducer = (state = initialState, action) => {
 
 export const setAuth = (isAuth) => ({ type: SET_AUTH, isAuth });
 
-/* Thunk */
+/* Временно поменял логику логина , что-бы выложить проект на netlify */
 export const login = (data) => (dispatch) => {
   dataUsers.users.forEach((user) => {
-    if (data.login == user.login && data.password == user.pasword) {
+    if (data.login !== user.login && data.password !== user.pasword) {
       dispatch(setAuth(true));
       dispatch(setUserName(data.login));
       let token = tokenGenerator();
