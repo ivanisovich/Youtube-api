@@ -1,6 +1,5 @@
 import React from "react";
 import "./Login.css";
-import logo from "../../assets/img/sibdev-logo.png";
 import { Form, Input, Button } from "antd";
 import { Redirect } from "react-router-dom";
 
@@ -35,7 +34,6 @@ const Login = (props) => {
   }
   return (
     <div className={"login"}>
-      <img className={"login_img"} src={logo} alt="" />
       <div className={"login_title"}>Вход</div>
       <LoginForm onSubmit={onSubmit} />
     </div>

@@ -3,7 +3,6 @@ import { Button, Col, Layout, Menu, Row } from "antd";
 import { NavLink, Redirect, Route, Switch } from "react-router-dom";
 import FavouritesContainer from "./Favourites/FavouritesContainer";
 import SearchContainer from "./Search/SearchContainer";
-import logo from "../../assets/img/sibdev-logo.png";
 import "./Page.css";
 
 const { Header, Content } = Layout;
@@ -13,11 +12,6 @@ const Page = (props) => {
     <Layout className={"layout"}>
       <Header>
         <Row>
-          <Col span={2}>
-            <div className={"logo"}>
-              <img src={logo} alt="" />
-            </div>
-          </Col>
           <Col span={18}>
             <Menu mode="horizontal" defaultSelectedKeys={["1"]}>
               <Menu.Item key="1">
